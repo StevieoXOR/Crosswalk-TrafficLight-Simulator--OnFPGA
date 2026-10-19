@@ -44,3 +44,45 @@ Required software:    Execute this code in Vitis2025.2
 <br>
 <br>
 
+# Relevant images
+
+## Xilinx Datasheet - Mem Offsets of Timer Component's *Registers*
+
+A snippet extracted from a 2016 Xilinx datasheet on the AXI Timer device (specifically "Table 2-4").  
+
+This excerpt shows the memory offsets of each of the three timer registers per timer component - TCS, TL, TC.  
+* Each offset's format is in &nbsp; hexadecimal(...`h`) &nbsp; unsigned(`0`...) &nbsp; bytes.
+
+These three address offsets (0, 4, 8, respectively) are relative to the Base Address of the entire Timer0 component.  
+* TCSR0 is 'Timer(Component#)0 - Register (for) Control (and) Status (together)'.
+  * This register contains Control flags and Status flags.  
+* TLR0 is 'Timer(Component#)0 - Register (for) Load'.
+  * This is the register in which the user stores `#ClockCyclesEquivalentToASpecifiedTimeDuration`.
+* TCR0 is 'Timer(Component#)0 - Register (for) Counter'.
+
+Read the full `AXI Timer` datasheet for how to use (and more importantly, how *not* to use) these three registers.
+
+<img alt="" src="Assets/AXI_Timer_MemOffsetsInBytes-FromXilinx2016Datasheet.png" width=1000 height=600>  
+<br>
+
+
+## Vivado - Block Diagram of all FUs placed on FPGA
+
+Refer to the Functional Units (FUs) listed earlier in this `README.md` file. These will be what appear in this below screenshot.  
+
+This screenshot shows a Block Diagram (BD) of interconnected 'blocks'/'FUs', where each 'block' is a component that can interface with other components (via that component's 'port(s)') on the overall board/FPGA.  
+Each connection between a component and another component is representing a physical wire (or a group of wires, called a 'bus').  
+
+<img alt="" src="Assets/BlockDiagram_withTimerCmpnt_OfEntireFPGA-VivadoScreenshot.png" width=1000 height=600>  
+<br>
+
+
+## Vivado - Mem Offsets of all FUs
+A screenshot of mutually exclusive (i.e., non-conflicting) memory addresses associated with all ports on all components on the softcore FPGA:
+<img alt="" src="Assets/MemAddressMappings_withTimerCmpnt_OfEntireFPGA-VivadoScreenshot.png" width=1000 height=600>  
+<br>
+
+
+
+
+
