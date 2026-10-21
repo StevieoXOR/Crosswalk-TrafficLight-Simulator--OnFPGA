@@ -4,7 +4,8 @@
 
 
 ## Summary
-I used Vivado2025.2 to configure GPIO modules, RGB LEDs, Green LEDs, push-buttons, dipswitches/toggle switches, modules’ memory addresses, & then compile a bitstream for flashing to ARTY A7-100T hardware’s FPGA platform.  
+I used Vivado2025.2 to configure GPIO modules, RGB LEDs, Green LEDs, push-buttons, dipswitches/toggle switches, modules’ memory addresses, & then compile a bitstream for flashing to [ARTY A7-100T hardware](https://digilent.com/shop/arty-a7-100t-artix-7-fpga-development-board/)’s FPGA platform.  
+* As of Oct 20, 2026, the ARTY A7-100T costs $322. The non-100T version ("35T") cost $99 in 2020.
 
 I used Vitis2025.2 to create, debug, & comprehensively test my state-to-state transition logic in C code to implement the following states and transitions of the traffic lights:  
 * **green** (default state) → **blinking red** (for 6 seconds, extensible upon any of 4 buttons being pushed) → **solid red** (4 seconds, uninterruptible) → **blinking red** (for 6 seconds, uninterruptible) → **green** (default state).
